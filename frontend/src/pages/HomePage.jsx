@@ -24,23 +24,23 @@ const HomePage = () => {
             <input
               type="text"
               placeholder="Search Blog"
-              className="bg-transparent p-2 border-2 border-primaryYellow w-3/4 outline-none rounded-md"
+              className="bg-transparent p-2 border-2 border-darkBlue focus:border-primaryYellow w-3/4 outline-none rounded-md"
             />
 
-            <button className="p-2 rounded-md bg-primaryYellow">
+            <button className="py-2 px-[10px] rounded-md bg-primaryYellow">
               <img src="/assets/search.svg" alt="" />
             </button>
           </div>
           <div className="flex flex-wrap items-center text-xl md:text-2xl gap-x-7 gap-y-5">
             <span className="font-semibold">Popular Tags :</span>
 
-            <span className="text-primaryYellow bg-[#69523d] px-2 py-1 rounded-md">
+            <span className="text-primaryYellow bg-brown px-2 py-1 rounded-md">
               AI/ML
             </span>
-            <span className="text-primaryYellow bg-[#69523d] px-2 py-1 rounded-md">
+            <span className="text-primaryYellow bg-brown px-2 py-1 rounded-md">
               Design
             </span>
-            <span className="text-primaryYellow bg-[#69523d] px-2 py-1 rounded-md">
+            <span className="text-primaryYellow bg-brown px-2 py-1 rounded-md">
               User Interface
             </span>
           </div>

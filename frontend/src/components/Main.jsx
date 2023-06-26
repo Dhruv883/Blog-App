@@ -5,12 +5,10 @@ import BlogCard from "./BlogCard";
 const Main = ({ children }) => {
   return (
     <div className="bg-primaryBlue text-white">
-      {/* <Navbar />
-      {children} */}
+      <Navbar />
+      {children}
 
-      <div className="flex gap-10 justify-center items-center">
-        <BlogCard />
-        <BlogCard />
+      <div className="flex gap-10 justify-center items-center p-4 lg:p-10">
         <BlogCard />
       </div>
     </div>
