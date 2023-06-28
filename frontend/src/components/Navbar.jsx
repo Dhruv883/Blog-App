@@ -24,9 +24,12 @@ const Navbar = () => {
         />
       </div>
       <div className="hidden md:flex gap-8 text-xl ">
-        {menuItems.map((menuItem) => {
+        {menuItems.map((menuItem, index) => {
           return (
-            <span className="p-2 border-b-2 border-primaryBlue hover:border-primaryYellow">
+            <span
+              className="px-2 py-1 border-b-2 border-primaryBlue hover:border-primaryYellow"
+              key={index}
+            >
               <a href="">{menuItem.name}</a>
             </span>
           );
@@ -46,9 +49,12 @@ const Navbar = () => {
             </button>
           </div>
           <div className="flex flex-col items-center pt-20 gap-5">
-            {menuItems.map((menuItem) => {
+            {menuItems.map((menuItem, index) => {
               return (
-                <span className="p-2 border-b-2 border-primaryBlue hover:border-primaryYellow">
+                <span
+                  className="px-2 py-1 border-b-2 border-primaryBlue hover:border-primaryYellow"
+                  key={index}
+                >
                   <a href="">{menuItem.name}</a>
                 </span>
               );

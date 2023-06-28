@@ -1,16 +1,11 @@
 import React from "react";
 import Navbar from "./Navbar";
-import BlogCard from "./BlogCard";
 
 const Main = ({ children }) => {
   return (
-    <div className="bg-primaryBlue text-white">
+    <div className="bg-primaryBlue text-white min-h-screen min-w-screen overflow-x-hidden">
       <Navbar />
       {children}
-
-      <div className="flex gap-10 justify-center items-center p-4 lg:p-10">
-        <BlogCard />
-      </div>
     </div>
   );
 };

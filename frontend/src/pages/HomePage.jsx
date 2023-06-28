@@ -23,7 +23,7 @@ const HomePage = () => {
           <div className="flex items-center py-2 gap-2 text-xl">
             <input
               type="text"
-              placeholder="Search Blog"
+              placeholder="Search Blog by Tag..."
               className="bg-transparent p-2 border-2 border-darkBlue focus:border-primaryYellow w-3/4 outline-none rounded-md"
             />
 

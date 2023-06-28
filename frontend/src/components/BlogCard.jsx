@@ -2,20 +2,20 @@ import React from "react";
 
 const BlogCard = () => {
   return (
-    <div className="flex flex-col items-center md:flex-row rounded-2xl font-FiraSans pt-5 pb-2 shadow-blueShadow">
-      <div className="px-3 lg:px-0 w-full h-[275px] md:w-[300px] md:h-[300px] md:-translate-x-12 lg:-translate-x-20 overflow-hidden rounded-2xl  shadow-blueShadow">
+    <div className="flex flex-col items-center md:flex-row  rounded-2xl font-FiraSans pt-5 pb-2 shadow-blueShadow">
+      <div className="px-3 lg:px-0 w-full h-[275px] md:w-[300px] md:h-[300px] md:-translate-x-0 lg:-translate-x-20 overflow-hidden rounded-2xl  lg:shadow-blueShadow ">
         <img
           src="/assets/art.jpg"
           alt=""
           className="rounded-2xl w-full h-full object-cover"
         />
       </div>
-      <div className="p-4 md:-translate-x-6 flex flex-col gap-2">
+      <div className="p-4 lg:-translate-x-6 flex flex-col gap-2">
         <div className="py-2 text-3xl lg:text-4xl md:max-w-2xl md:max-h-12 overflow-hidden text-primaryYellow font-semibold tracking-wider">
           Card Title Topic
         </div>
         <div className="flex flex-col">
-          <span className="text-lg tracking-wide">@dhruv883</span>
+          <span className="text-lg tracking-wide">@user1234</span>
           <span className="bg-primaryYellow h-[5px] w-24 rounded-[3px] my-1"></span>
         </div>
         <div className="py-3 md:max-w-[400px] lg:max-w-[700px] max-h-64 lg:max-h-32 overflow-hidden">
