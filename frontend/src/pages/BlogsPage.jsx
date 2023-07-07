@@ -9,6 +9,13 @@ const BlogsPage = () => {
         <BlogCard />
         <BlogCard />
         <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
       </section>
     </Main>
   );

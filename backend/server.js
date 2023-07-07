@@ -12,6 +12,12 @@ app.get("/", (req, res) => {
   res.send("Server is running...");
 });
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+
 app.use("/api/users", userRoutes);
 app.use(invalidPathHandler);
 app.use(errorHandler);
