@@ -162,14 +162,52 @@ const getBlog = async (req, res, next) => {
 
 const getAllBlogs = async (req, res, next) => {
   try {
-    const blogs = await Blog.find({}).populate([
-      {
-        path: "user",
-        select: ["username", "name"],
-      },
-    ]);
+    // const blogs = await Blog.find({}).populate([
+    //   {
+    //     path: "user",
+    //     select: ["username", "name"],
+    //   },
+    // ]);
 
-    res.json(blogs);
+    // res.json(blogs);
+
+    const filter = req.query.searchKeyword;
+    let where = {};
+    if (filter) {
+      const regexFilter = new RegExp(filter, "i");
+      where.title = { $regex: regexFilter };
+    }
+    let query = Blog.find(where);
+    const page = parseInt(req.query.page || 1);
+    const pagesize = 10;
+    const skip = (page - 1) * pagesize;
+    const total = await Blog.countDocuments();
+    const pages = Math.ceil(total / pagesize);
+
+    if (page > pages) {
+      return new Error("No Page Found");
+    }
+
+    const result = await query
+      .skip(skip)
+      .limit(pagesize)
+      .populate([
+        {
+          path: "user",
+          select: ["username", "name"],
+        },
+      ])
+      .sort({ createdAt: "desc" });
+
+    res.header({
+      "x-filter": filter,
+      "x-totalcount": JSON.stringify(total),
+      "x-currentpage": JSON.stringify(page),
+      "x-pagesize": JSON.stringify(pagesize),
+      "x-totalpagecount": JSON.stringify(pages),
+    });
+
+    return res.json(result);
   } catch (error) {
     next(error);
   }

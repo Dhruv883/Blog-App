@@ -67,7 +67,7 @@ const BlogDetail = () => {
             <div className="py-2 text-3xl lg:text-5xl text-primaryYellow font-semibold tracking-wider">
               {data.title}
             </div>
-            <div className="text-lg opacity-80 prose sm:prose-strong:text-3xl prose-strong:text-white prose-sm sm:prose-2xl text-white">
+            <div className="text-lg opacity-80 prose prose-strong:text-white prose-sm sm:prose-2xl text-white">
               {body}
             </div>
             <div className="flex flex-wrap items-center text-xl gap-5 text-primaryYellow">
