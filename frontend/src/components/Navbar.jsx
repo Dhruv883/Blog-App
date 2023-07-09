@@ -82,7 +82,7 @@ const Navbar = () => {
                   setProfileDropdown(!profileDropdown);
                 }}
               >
-                <span>Username</span>
+                <span>{userState.userInfo.username}</span>
                 <span>
                   <MdKeyboardArrowDown
                     className={`${profileDropdown ? "rotate-180" : null}`}
@@ -93,15 +93,6 @@ const Navbar = () => {
             {/* Dropdown Menu */}
             {profileDropdown && (
               <div className="border-2 border-primaryYellow flex flex-col absolute right-10 top-24 bg-primaryBlue p-4 px-8 gap-2 rounded-xl shadow-2xl mr-3">
-                {userState.userInfo.admin ? (
-                  <Link
-                    to="/admin"
-                    className="border-2 border-red-100 hover:text-primaryYellow"
-                  >
-                    Admin Dashboard
-                  </Link>
-                ) : null}
-
                 <NavLink to="/profile" className="hover:text-primaryYellow">
                   Profile
                 </NavLink>

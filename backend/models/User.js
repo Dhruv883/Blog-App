@@ -9,7 +9,6 @@ const UserSchema = new Schema(
     email: { type: String, require: true },
     username: { type: String, require: true },
     password: { type: String, require: true },
-    admin: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

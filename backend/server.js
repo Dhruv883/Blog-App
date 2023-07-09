@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import connectDB from "./db/db";
 import { errorHandler, invalidPathHandler } from "./middleware/errorHandler";
 import userRoutes from "./routes/userRoutes";
+import blogRoutes from "./routes/blogRoutes";
 
 dotenv.config();
 const app = express();
@@ -19,6 +20,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/users", userRoutes);
+app.use("/api/blog", blogRoutes);
 app.use(invalidPathHandler);
 app.use(errorHandler);
 
