@@ -7,7 +7,7 @@ const BlogSchema = new Schema(
     photo: { type: String, require: true },
     user: { type: Schema.Types.ObjectId, ref: "User" },
     tags: { type: [String], require: true },
-    category: [{ type: Schema.Types.ObjectId, ref: "BlogCategory" }],
+    category: { type: String, require: true },
   },
   { timestamps: true }
 );

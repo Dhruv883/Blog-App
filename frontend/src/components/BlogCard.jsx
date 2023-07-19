@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { generateHTML } from "@tiptap/html";
+import Bold from "@tiptap/extension-bold";
+import Italic from "@tiptap/extension-italic";
+import Document from "@tiptap/extension-document";
+import Paragraph from "@tiptap/extension-paragraph";
+import Text from "@tiptap/extension-text";
+
+import parse from "html-react-parser";
+
 const BlogCard = ({ blog }) => {
-  const { _id, title, body, category, photo, tags, user } = blog;
+  const [bodyMain, setBodyMain] = useState(null);
+  const [picture, setPicture] = useState(null);
+
+  const { _id, title, category, photo, tags, user } = blog;
   const { name, username } = user;
+
+  useEffect(() => {
+    setBodyMain(
+      parse(generateHTML(blog.body, [Document, Paragraph, Text, Bold, Italic]))
+    );
+  }, []);
 
   return (
     <div className="flex flex-col items-center md:flex-row  rounded-2xl font-FiraSans pt-5 pb-2 shadow-blueShadow">
       <div className="px-3 lg:px-0 w-full h-[275px] md:w-[300px] md:h-[300px] md:-translate-x-0 lg:-translate-x-20 overflow-hidden rounded-2xl  lg:shadow-blueShadow ">
         <img
-          src={
-            // `http://localhost:5000/uploads/${blog.photo}` ||
-            "/assets/default.jpg"
-          }
+          src={"/assets/default.jpg"}
           alt=""
           className="rounded-2xl w-full h-full object-cover"
         />
@@ -29,14 +44,8 @@ const BlogCard = ({ blog }) => {
           </span>
           <span className="bg-primaryYellow h-[5px] w-full rounded-[3px] my-1"></span>
         </div>
-        <div className="py-3 md:max-w-[400px] lg:max-w-[700px] max-h-64 lg:max-h-32 overflow-hidden">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
-          dolores doloremque, quia eos laboriosam assumenda fuga consequuntur
-          obcaecati omnis sunt impedit iusto aspernatur, aperiam veniam
-          consequatur vitae ipsa temporibus quaerat non perspiciatis at placeat
-          distinctio. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Cum provident est sapiente neque ex, corporis velit dolorem optio quis
-          eius voluptate eveniet praesentium alias adipiscilllll
+        <div className="py-3 md:max-w-[400px] lg:max-w-[700px] max-h-64 lg:max-h-32 overflow-hidden text-lg">
+          {bodyMain}
           {/* Max-60 */}
         </div>
         <div className="flex py-1">

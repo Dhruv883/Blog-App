@@ -5,7 +5,7 @@ import { fileRemover } from "../utils/fileRemover";
 const createBlog = async (req, res, next) => {
   try {
     const blog = new Blog({
-      title: "Updated Blog",
+      title: "Sample Title 4",
       body: {
         type: "doc",
         content: [
@@ -58,9 +58,10 @@ const createBlog = async (req, res, next) => {
           },
         ],
       },
-      photo: "",
+      photo: "event.jpg",
       user: req.user._id,
       tags: ["iOS", "Android", "Adventure"],
+      category: "",
     });
 
     const createdBlog = await blog.save();
@@ -162,14 +163,16 @@ const getBlog = async (req, res, next) => {
 
 const getAllBlogs = async (req, res, next) => {
   try {
-    const blogs = await Blog.find({}).populate([
-      {
-        path: "user",
-        select: ["username", "name"],
-      },
-    ]);
+    const blogs = await Blog.find({})
+      .populate([
+        {
+          path: "user",
+          select: ["username", "name"],
+        },
+      ])
+      .sort({ createdAt: "desc" });
 
-    res.json(blogs);
+    return res.json(blogs);
 
     // const filter = req.query.searchKeyword;
     // let where = {};
@@ -207,10 +210,27 @@ const getAllBlogs = async (req, res, next) => {
     //   "x-totalpagecount": JSON.stringify(pages),
     // });
 
-    return res.json(result);
+    // return res.json(result);
   } catch (error) {
     next(error);
   }
 };
 
-export { createBlog, updateBlog, deleteBlog, getBlog, getAllBlogs };
+const getuserBlogs = async (req, res, next) => {
+  try {
+    const blogs = await Blog.find({ user: req.user.id });
+
+    return res.json(blogs);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export {
+  createBlog,
+  updateBlog,
+  deleteBlog,
+  getBlog,
+  getAllBlogs,
+  getuserBlogs,
+};
