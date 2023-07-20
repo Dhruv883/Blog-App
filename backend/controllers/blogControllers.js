@@ -5,7 +5,7 @@ import { fileRemover } from "../utils/fileRemover";
 const createBlog = async (req, res, next) => {
   try {
     const blog = new Blog({
-      title: "Sample Title 4",
+      title: "Sample Title 6",
       body: {
         type: "doc",
         content: [
@@ -218,7 +218,12 @@ const getAllBlogs = async (req, res, next) => {
 
 const getuserBlogs = async (req, res, next) => {
   try {
-    const blogs = await Blog.find({ user: req.user.id });
+    const blogs = await Blog.find({ user: req.user.id }).populate([
+      {
+        path: "user",
+        select: ["username", "name"],
+      },
+    ]);
 
     return res.json(blogs);
   } catch (error) {

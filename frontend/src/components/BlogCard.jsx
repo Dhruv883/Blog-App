@@ -12,8 +12,6 @@ import parse from "html-react-parser";
 
 const BlogCard = ({ blog }) => {
   const [bodyMain, setBodyMain] = useState(null);
-  const [picture, setPicture] = useState(null);
-
   const { _id, title, category, photo, tags, user } = blog;
   const { name, username } = user;
 
