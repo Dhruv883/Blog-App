@@ -52,13 +52,9 @@ const BlogDetail = () => {
               />
             </div>
             <div className="text-2xl py-2">
-              {data.category ? (
-                <Link to="/blogs?category=selectedCategory">
-                  <span className="bg-darkBlue text-gray-300 px-3 py-2 rounded-md">
-                    {data.category}
-                  </span>
-                </Link>
-              ) : null}
+              <span className="bg-darkBlue text-gray-300 px-3 py-2 rounded-md">
+                {data.category}
+              </span>
             </div>
             <div className="py-2 text-3xl lg:text-5xl text-primaryYellow font-semibold tracking-wider">
               {data.title}

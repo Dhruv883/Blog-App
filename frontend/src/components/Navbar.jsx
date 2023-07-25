@@ -32,7 +32,7 @@ const Navbar = () => {
     <section className="flex justify-between pl-4 pr-14 items-center pt-1">
       <div className="text-2xl flex justify-center items-center p-3">
         <img
-          src="/assets/logos/png/logo-no-background.png"
+          src="/assets/logos/logo-no-background.png"
           alt=""
           className="w-28"
         />
