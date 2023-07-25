@@ -40,16 +40,15 @@ const deleteBlog = async ({ id, token }) => {
   }
 };
 
-const createBlog = async ({ title, image, category, body, tags, token }) => {
-  const data = { title, image, category, body, tags };
+const createBlog = async ({ formData, token }) => {
   try {
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
+        "content-type": "multipart/form-data",
       },
     };
-    await axios.post(`http://localhost:5000/api/blog/create`, data, config);
-    return 0;
+    await axios.post(`http://localhost:5000/api/blog/create`, formData, config);
   } catch (error) {
     if (error.response && error.response.data.message) {
       throw new Error(error.response.data.message);

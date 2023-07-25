@@ -3,78 +3,23 @@ import { uploadPicture } from "../middleware/uploadPicture";
 import { fileRemover } from "../utils/fileRemover";
 
 const createBlog = async (req, res, next) => {
-  const { title, image, category, body, tags } = req.body;
+  const { title, category, body, tags } = req.body;
 
   try {
-    // const blog = new Blog({
-    //   title: "Sample Title 6",
-    //   body: {
-    //     type: "doc",
-    //     content: [
-    //       {
-    //         type: "paragraph",
-    //         content: [
-    //           {
-    //             type: "text",
-    //             text: "Wow, this editor instance exports its content as JSON. ",
-    //           },
-    //           {
-    //             type: "text",
-    //             marks: [
-    //               {
-    //                 type: "bold",
-    //               },
-    //             ],
-    //             text: "Wow, this editor instance exports its content as JSON.",
-    //           },
-    //           {
-    //             type: "text",
-    //             text: " ",
-    //           },
-    //           {
-    //             type: "text",
-    //             marks: [
-    //               {
-    //                 type: "italic",
-    //               },
-    //             ],
-    //             text: "Wow, this editor instance exports its content as JSON.",
-    //           },
-    //           {
-    //             type: "text",
-    //             text: " ",
-    //           },
-    //           {
-    //             type: "text",
-    //             marks: [
-    //               {
-    //                 type: "bold",
-    //               },
-    //               {
-    //                 type: "italic",
-    //               },
-    //             ],
-    //             text: "Wow, this editor instance exports its content as JSON.",
-    //           },
-    //         ],
-    //       },
-    //     ],
-    //   },
-    //   photo: "event.jpg",
-    //   user: req.user._id,
-    //   tags: ["iOS", "Android", "Adventure"],
-    //   category: "",
-    // });
-    // const createdBlog = await blog.save();
-    // return res.json(createdBlog);
+    const imageName = req.file.filename;
+
+    const blog = new Blog({
+      title: title,
+      body: JSON.parse(body),
+      photo: imageName,
+      user: req.user.id,
+      tags: tags.split(",").slice(0, 8),
+      category: category,
+    });
+    const createdBlog = await blog.save();
+    return res.json(createdBlog);
   } catch (error) {
     next(error);
-  }
-};
-
-const uploadBlogPicture = async (req, res, next) => {
-  if (req.files === null) {
-    return res.status(400).json({ msg: "No file uploaded" });
   }
 };
 
@@ -240,7 +185,6 @@ const getuserBlogs = async (req, res, next) => {
 
 export {
   createBlog,
-  uploadBlogPicture,
   updateBlog,
   deleteBlog,
   getBlog,

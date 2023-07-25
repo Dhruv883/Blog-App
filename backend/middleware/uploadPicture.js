@@ -1,27 +1,28 @@
 import multer from "multer";
-import path from "path";
+import path, { join } from "path";
+import { v4 as uuidv4 } from "uuid";
 
 const storage = multer.diskStorage({
-  destination: (req, res, calb) => {
-    calb(null, path.join(__dirname, "../uploads"));
+  destination: (req, res, cb) => {
+    cb(null, "../frontend/public/blogImages");
   },
-  filename: (req, file, calb) => {
-    calb(null, `${Date.now()}-${file.originalname}`);
+  filename: (req, file, cb) => {
+    cb(null, uuidv4() + "-" + Date.now() + path.extname(file.originalname));
   },
 });
 
+const fileFilter = (req, file, cb) => {
+  const allowedFileType = ["image/png", "image/jpeg", "image/jpg"];
+  if (allowedFileType.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
 const uploadPicture = multer({
   storage: storage,
-  limits: {
-    fileSize: 1 * 1000000,
-  },
-  fileFilter: function (req, file, calb) {
-    let ext = path.extname(file.originalname);
-    if (ext != ".png" && ext != ".jpg" && ext != ".jpeg") {
-      return calb(new Error("Invalid file type"));
-    }
-    calb(null, true);
-  },
+  fileFilter: fileFilter,
 });
 
 export { uploadPicture };

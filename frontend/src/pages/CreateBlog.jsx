@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Main from "../components/Main";
 import Tiptap from "../components/TipTap";
 import { Color } from "@tiptap/extension-color";
@@ -11,26 +11,42 @@ import { useSelector } from "react-redux";
 
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
-
 import { createBlog } from "../services/index/blogs";
 
 const CreateBlog = () => {
   const userState = useSelector((state) => state.user.userInfo);
   const token = userState.token;
 
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      title: "",
-      image: "",
-      category: "",
-      tags: [],
-    },
-    mode: "onChange",
+  const [blog, setBlog] = useState({
+    title: "",
+    blogImage: "",
+    category: "",
+    tags: "",
   });
 
+  const handleChange = (e) => {
+    setBlog((prevBlog) => ({ ...prevBlog, [e.target.name]: e.target.value }));
+  };
+  const handlePhoto = (e) => {
+    setBlog((prevBlog) => ({ ...prevBlog, blogImage: e.target.files[0] }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let bodyContent = editor.getJSON();
+    let tags = blog.tags.split(" ").slice(0);
+    const formData = new FormData();
+    formData.append("title", blog.title);
+    formData.append("blogImage", blog.blogImage);
+    formData.append("category", blog.category);
+    formData.append("body", JSON.stringify(bodyContent));
+    formData.append("tags", tags);
+
+    mutate(formData);
+  };
+
   const { mutate, isLoading } = useMutation({
-    mutationFn: ({ title, image, category, body, tags }) => {
-      return createBlog({ title, image, category, body, tags, token });
+    mutationFn: (formData) => {
+      createBlog({ formData, token });
     },
     onSuccess: (data) => {
       toast.success("Blog Created Successfully");
@@ -39,14 +55,6 @@ const CreateBlog = () => {
       toast.error(error.message);
     },
   });
-
-  const onSubmit = (data) => {
-    const { title, image, category } = data;
-    if (image == "") toast.error("Image not uploaded");
-    let body = editor.getJSON();
-    let tags = data.tags.split(" ").slice(0, 8);
-    mutate({ title, image, category, body, tags });
-  };
 
   const editor = useEditor({
     extensions: [
@@ -75,8 +83,9 @@ const CreateBlog = () => {
         </span>
         <form
           method="POST"
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit}
           className="flex flex-col gap-8"
+          encType="multipart/form-data"
         >
           <div className="flex flex-col">
             <span className="text-primaryYellow text-2xl font-light">
@@ -85,10 +94,11 @@ const CreateBlog = () => {
             <input
               type="text"
               placeholder="Title"
-              {...register("title")}
+              name="title"
               className="outline-none bg-transparent placeholder:text-xl border-b-2 border-primaryYellow py-2 text-xl "
               maxLength={35}
               minLength={10}
+              onChange={handleChange}
               required
             />
           </div>
@@ -97,7 +107,7 @@ const CreateBlog = () => {
               Image
             </span>
             <label
-              htmlFor="image"
+              htmlFor="blogImage"
               className="border-b-2 border-primaryYellow flex items-center gap-4 cursor-pointer"
             >
               <img
@@ -109,11 +119,10 @@ const CreateBlog = () => {
             </label>
             <input
               type="file"
-              accept=".png, .jpg, .jpeg"
-              id="image"
-              name="image"
+              name="blogImage"
+              id="blogImage"
               hidden
-              {...register("image")}
+              onChange={handlePhoto}
             />
           </div>
           <div className="flex flex-col">
@@ -123,7 +132,8 @@ const CreateBlog = () => {
             <input
               type="text"
               placeholder="Category"
-              {...register("category")}
+              onChange={handleChange}
+              name="category"
               className="outline-none bg-transparent placeholder:text-xl border-b-2 border-primaryYellow  py-2 text-xl"
               maxLength={15}
               minLength={5}
@@ -143,7 +153,8 @@ const CreateBlog = () => {
             <input
               type="text"
               placeholder="Tags"
-              {...register("tags")}
+              name="tags"
+              onChange={handleChange}
               className="outline-none bg-transparent placeholder:text-xl border-b-2 border-primaryYellow  py-2 text-xl"
               minLength={5}
               maxLength={100}

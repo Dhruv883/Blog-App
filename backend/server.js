@@ -4,6 +4,7 @@ import connectDB from "./db/db";
 import { errorHandler, invalidPathHandler } from "./middleware/errorHandler";
 import userRoutes from "./routes/userRoutes";
 import blogRoutes from "./routes/blogRoutes";
+import cors from "cors";
 
 dotenv.config();
 const app = express();
@@ -13,12 +14,7 @@ app.get("/", (req, res) => {
   res.send("Server is running...");
 });
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
+app.use(cors());
 
 app.use("/api/users", userRoutes);
 app.use("/api/blog", blogRoutes);

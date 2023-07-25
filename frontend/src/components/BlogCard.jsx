@@ -25,7 +25,7 @@ const BlogCard = ({ blog }) => {
     <div className="flex flex-col items-center md:flex-row  rounded-2xl font-FiraSans pt-5 pb-2 shadow-blueShadow">
       <div className="px-3 lg:px-0 w-full h-[275px] md:w-[300px] md:h-[300px] md:-translate-x-0 lg:-translate-x-20 overflow-hidden rounded-2xl  lg:shadow-blueShadow ">
         <img
-          src={"/assets/default.jpg"}
+          src={`/blogImages/${photo}`}
           alt=""
           className="rounded-2xl w-full h-full object-cover"
         />

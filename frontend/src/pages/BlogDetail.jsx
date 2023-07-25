@@ -46,7 +46,7 @@ const BlogDetail = () => {
           <div className="p-4 flex flex-col gap-5 w-4/5 m-auto">
             <div className="w-full rounded-3xl">
               <img
-                src="/assets/default.jpg"
+                src={`/blogImages/${data.photo}`}
                 alt=""
                 className="rounded-3xl w-full h-full object-fill aspect-video"
               />
