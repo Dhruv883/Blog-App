@@ -2,6 +2,7 @@ import express from "express";
 import auth from "../middleware/auth";
 import {
   createBlog,
+  uploadBlogPicture,
   deleteBlog,
   updateBlog,
   getBlog,
@@ -9,7 +10,9 @@ import {
 } from "../controllers/blogControllers";
 const router = express.Router();
 
-router.route("/").post(auth, createBlog).get(getAllBlogs);
+router.get("/", getAllBlogs);
+router.post("/upload", auth, uploadBlogPicture);
+router.post("/create", auth, createBlog);
 router
   .route("/:id")
   .put(auth, updateBlog)

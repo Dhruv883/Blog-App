@@ -52,22 +52,18 @@ const BlogDetail = () => {
               />
             </div>
             <div className="text-2xl py-2">
-              {data.category
-                ? data.category.map((cat) => {
-                    return (
-                      <Link to="/blogs?category=selectedCategory">
-                        <span className="bg-darkBlue text-gray-300 px-3 py-2 rounded-md">
-                          {cat}
-                        </span>
-                      </Link>
-                    );
-                  })
-                : null}
+              {data.category ? (
+                <Link to="/blogs?category=selectedCategory">
+                  <span className="bg-darkBlue text-gray-300 px-3 py-2 rounded-md">
+                    {data.category}
+                  </span>
+                </Link>
+              ) : null}
             </div>
             <div className="py-2 text-3xl lg:text-5xl text-primaryYellow font-semibold tracking-wider">
               {data.title}
             </div>
-            <div className="text-lg opacity-80 prose prose-strong:text-white prose-sm sm:prose-2xl text-white">
+            <div className="text-lg prose prose-strong:text-white prose-sm sm:prose-2xl text-[#ffffff]">
               {body}
             </div>
             <div className="flex flex-wrap items-center text-xl gap-5 text-primaryYellow">

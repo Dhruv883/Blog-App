@@ -51,7 +51,7 @@ const Profile = () => {
                 key={index}
               >
                 <BlogCard key={blog._id} blog={blog} />
-                <div className="relative -top-20 -right-80 md:right-24 md:top-8 h-16 w-16 rounded-full p-2 cursor-pointer hover:bg-[rgba(255,255,255,0.07)]">
+                <div className="relative -top-20 -right-80 md:right-[90px] md:top-6 h-16 w-16 rounded-full p-2 cursor-pointer hover:bg-[rgba(255,255,255,0.07)]">
                   <img
                     src="/assets/delete.svg"
                     alt="delete"

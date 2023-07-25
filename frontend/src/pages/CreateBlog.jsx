@@ -1,0 +1,167 @@
+import React from "react";
+import Main from "../components/Main";
+import Tiptap from "../components/TipTap";
+import { Color } from "@tiptap/extension-color";
+import ListItem from "@tiptap/extension-list-item";
+import TextStyle from "@tiptap/extension-text-style";
+import { useEditor } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
+
+import { useForm } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
+
+import { createBlog } from "../services/index/blogs";
+
+const CreateBlog = () => {
+  const userState = useSelector((state) => state.user.userInfo);
+  const token = userState.token;
+
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      title: "",
+      image: "",
+      category: "",
+      tags: [],
+    },
+    mode: "onChange",
+  });
+
+  const { mutate, isLoading } = useMutation({
+    mutationFn: ({ title, image, category, body, tags }) => {
+      return createBlog({ title, image, category, body, tags, token });
+    },
+    onSuccess: (data) => {
+      toast.success("Blog Created Successfully");
+    },
+    onError: (error) => {
+      toast.error(error.message);
+    },
+  });
+
+  const onSubmit = (data) => {
+    const { title, image, category } = data;
+    if (image == "") toast.error("Image not uploaded");
+    let body = editor.getJSON();
+    let tags = data.tags.split(" ").slice(0, 8);
+    mutate({ title, image, category, body, tags });
+  };
+
+  const editor = useEditor({
+    extensions: [
+      Color.configure({ types: [TextStyle.name, ListItem.name] }),
+      TextStyle.configure({ types: [ListItem.name] }),
+      StarterKit.configure({
+        bulletList: {
+          keepMarks: true,
+          keepAttributes: false,
+        },
+        orderedList: {
+          keepMarks: true,
+          keepAttributes: false,
+        },
+        className: {},
+      }),
+    ],
+    content: `Start Writing . . .`,
+  });
+
+  return (
+    <Main>
+      <section className="p-8 flex flex-col mx-10">
+        <span className="text-primaryYellow text-5xl mb-10 self-center">
+          Create Blog
+        </span>
+        <form
+          method="POST"
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col gap-8"
+        >
+          <div className="flex flex-col">
+            <span className="text-primaryYellow text-2xl font-light">
+              Title
+            </span>
+            <input
+              type="text"
+              placeholder="Title"
+              {...register("title")}
+              className="outline-none bg-transparent placeholder:text-xl border-b-2 border-primaryYellow py-2 text-xl "
+              maxLength={35}
+              minLength={10}
+              required
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-primaryYellow text-2xl font-light">
+              Image
+            </span>
+            <label
+              htmlFor="image"
+              className="border-b-2 border-primaryYellow flex items-center gap-4 cursor-pointer"
+            >
+              <img
+                src="/assets/uploadImage.svg"
+                alt=""
+                className="relative -left-3"
+              />
+              <span className="text-2xl">Upload Image</span>
+            </label>
+            <input
+              type="file"
+              accept=".png, .jpg, .jpeg"
+              id="image"
+              name="image"
+              hidden
+              {...register("image")}
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-primaryYellow text-2xl font-light">
+              Category
+            </span>
+            <input
+              type="text"
+              placeholder="Category"
+              {...register("category")}
+              className="outline-none bg-transparent placeholder:text-xl border-b-2 border-primaryYellow  py-2 text-xl"
+              maxLength={15}
+              minLength={5}
+              required
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-primaryYellow text-2xl font-light mb-2">
+              Content
+            </span>
+            <Tiptap editor={editor} />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-primaryYellow text-2xl font-light">
+              Tags (Max - 8)
+            </span>
+            <input
+              type="text"
+              placeholder="Tags"
+              {...register("tags")}
+              className="outline-none bg-transparent placeholder:text-xl border-b-2 border-primaryYellow  py-2 text-xl"
+              minLength={5}
+              maxLength={100}
+              required
+            />
+          </div>
+          <div className="self-center">
+            <input
+              type="submit"
+              value="Create Blog"
+              disabled={isLoading}
+              className="p-3 rounded-lg bg-primaryYellow text-2xl cursor-pointer w-64"
+            />
+          </div>
+        </form>
+      </section>
+    </Main>
+  );
+};
+
+export default CreateBlog;
