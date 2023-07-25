@@ -31,9 +31,8 @@ const BlogCard = ({ blog }) => {
         />
       </div>
       <div className="p-4 lg:-translate-x-6 flex flex-col gap-2">
-        <div className="py-2 text-3xl lg:text-4xl md:max-w-2xl md:max-h-12 overflow-hidden text-primaryYellow font-semibold tracking-wider">
+        <div className="py-2 text-3xl md:max-w-2xl md:max-h-12 overflow-hidden text-primaryYellow font-semibold tracking-wider">
           {title}
-          {/* MAX-35 char */}
         </div>
         <div className="flex flex-col w-max">
           <span className="text-lg tracking-wide ">
@@ -44,7 +43,6 @@ const BlogCard = ({ blog }) => {
         </div>
         <div className="py-3 md:max-w-[400px] lg:max-w-[700px] max-h-64 lg:max-h-32 overflow-hidden text-lg">
           {bodyMain}
-          {/* Max-60 */}
         </div>
         <div className="flex py-1">
           <Link
@@ -62,8 +60,6 @@ const BlogCard = ({ blog }) => {
               </span>
             );
           })}
-
-          {/* MAX-8 TAGS */}
         </div>
       </div>
     </div>

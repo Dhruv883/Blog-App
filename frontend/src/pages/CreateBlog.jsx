@@ -63,13 +63,12 @@ const CreateBlog = () => {
       StarterKit.configure({
         bulletList: {
           keepMarks: true,
-          keepAttributes: false,
+          keepAttributes: true,
         },
         orderedList: {
           keepMarks: true,
-          keepAttributes: false,
+          keepAttributes: true,
         },
-        className: {},
       }),
     ],
     content: `Start Writing . . .`,
@@ -96,7 +95,7 @@ const CreateBlog = () => {
               placeholder="Title"
               name="title"
               className="outline-none bg-transparent placeholder:text-xl border-b-2 border-primaryYellow py-2 text-xl "
-              maxLength={35}
+              maxLength={50}
               minLength={10}
               onChange={handleChange}
               required

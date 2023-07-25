@@ -124,7 +124,26 @@ const MenuBar = ({ editor }) => {
       >
         h6
       </button>
-
+      <button
+        onClick={() => editor.chain().focus().toggleBulletList().run()}
+        className={
+          editor.isActive("bulletList")
+            ? "is-active bg-primaryYellow px-3 h-10 rounded-md"
+            : "border border-primaryYellow px-3 h-10 rounded-md"
+        }
+      >
+        bullet list
+      </button>
+      <button
+        onClick={() => editor.chain().focus().toggleOrderedList().run()}
+        className={
+          editor.isActive("orderedList")
+            ? "is-active bg-primaryYellow px-3 h-10 rounded-md"
+            : "border border-primaryYellow px-3 h-10 rounded-md"
+        }
+      >
+        ordered list
+      </button>
       <button
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
         className={

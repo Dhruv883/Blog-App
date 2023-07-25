@@ -48,7 +48,12 @@ const createBlog = async ({ formData, token }) => {
         "content-type": "multipart/form-data",
       },
     };
-    await axios.post(`http://localhost:5000/api/blog/create`, formData, config);
+    const { data } = await axios.post(
+      `http://localhost:5000/api/blog/create`,
+      formData,
+      config
+    );
+    return data;
   } catch (error) {
     if (error.response && error.response.data.message) {
       throw new Error(error.response.data.message);
