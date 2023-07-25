@@ -12,6 +12,8 @@ A basic Blog Site created using MERN (MongoDB, Express, React, Node.js) Stack. R
 <img width="960" alt="Screenshot 2023-07-25 163544" src="https://github.com/Dhruv883/Blog-App/assets/98738047/74bdaedd-e5dc-4215-bda4-b8503f00e1ad">
 <img width="959" alt="Screenshot 2023-07-25 163553" src="https://github.com/Dhruv883/Blog-App/assets/98738047/a4f9489b-a305-4b08-8001-d2e722f44692">
 
+<img width="960" alt="Screenshot 2023-07-25 163446" src="https://github.com/Dhruv883/Blog-App/assets/98738047/26751351-d293-41d7-8c95-8d912e2d25ac">
+
 <img width="960" alt="Screenshot 2023-07-25 160923" src="https://github.com/Dhruv883/Blog-App/assets/98738047/cab07ce2-06ea-46fa-ae1b-6bbd7050b232">
 <img width="960" alt="Screenshot 2023-07-25 160955" src="https://github.com/Dhruv883/Blog-App/assets/98738047/e8ac132d-3c71-47a8-b8ac-84d6979f771c">
 
