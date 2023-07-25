@@ -1,19 +1,18 @@
-# StoryCraft - Blog Site
+# Blog Site
 
 A basic Blog Site created using MERN (MongoDB, Express, React, Node.js) Stack. Referred to Moonfo's [tutorial](https://www.youtube.com/playlist?list=PLhaS1k1mPiCO878vo-9xFJAlUfcz9dMv2) to learn/practice backend 
 
-<img width="960" alt="Screenshot 2023-07-25 161326" src="https://github.com/Dhruv883/Blog-App/assets/98738047/e7500d06-37e9-4626-8beb-f0987cb28c62">
+<img width="960" alt="Screenshot 2023-07-25 161326" src="https://github.com/Dhruv883/Blog-App/assets/98738047/9443cfc7-72aa-434c-aee9-aad85d033d61">
 
-<img width="960" alt="Screenshot 2023-07-09 231509" src="https://github.com/Dhruv883/Blog-App/assets/98738047/49a49c6e-a252-4e14-bb61-fd1078224c48">
+<img width="960" alt="Screenshot 2023-07-25 165802" src="https://github.com/Dhruv883/Blog-App/assets/98738047/9f44b8e9-5029-45bc-a476-a93667d5d47e">
 
-<img width="960" alt="Screenshot 2023-07-25 163427" src="https://github.com/Dhruv883/Blog-App/assets/98738047/032b6456-b85f-4125-983f-a71d66150ab8">
+<img width="960" alt="Screenshot 2023-07-25 163427" src="https://github.com/Dhruv883/Blog-App/assets/98738047/38ae6995-f466-45d3-bf1a-da0d751541e3">
 
-<img width="960" alt="Screenshot 2023-07-25 163537" src="https://github.com/Dhruv883/Blog-App/assets/98738047/a65b7cde-a4dd-424f-af64-2e70d2c49f0b">
-<img width="960" alt="Screenshot 2023-07-25 163544" src="https://github.com/Dhruv883/Blog-App/assets/98738047/74bdaedd-e5dc-4215-bda4-b8503f00e1ad">
-<img width="959" alt="Screenshot 2023-07-25 163553" src="https://github.com/Dhruv883/Blog-App/assets/98738047/a4f9489b-a305-4b08-8001-d2e722f44692">
+<img width="960" alt="Screenshot 2023-07-25 163537" src="https://github.com/Dhruv883/Blog-App/assets/98738047/2f6cb303-432e-4737-a81d-ab16fe16cb95">
+<img width="960" alt="Screenshot 2023-07-25 163544" src="https://github.com/Dhruv883/Blog-App/assets/98738047/bb44c3af-c8b5-4774-800e-3d954f3a15cb">
+<img width="959" alt="Screenshot 2023-07-25 163553" src="https://github.com/Dhruv883/Blog-App/assets/98738047/8f7d22d8-65d7-46ad-8345-d2b96e1e5060">
 
-<img width="960" alt="Screenshot 2023-07-25 163446" src="https://github.com/Dhruv883/Blog-App/assets/98738047/26751351-d293-41d7-8c95-8d912e2d25ac">
+<img width="960" alt="Screenshot 2023-07-25 163446" src="https://github.com/Dhruv883/Blog-App/assets/98738047/f1b7578a-7ef6-4c57-8868-5cdc21308a63">
 
-<img width="960" alt="Screenshot 2023-07-25 160923" src="https://github.com/Dhruv883/Blog-App/assets/98738047/cab07ce2-06ea-46fa-ae1b-6bbd7050b232">
-<img width="960" alt="Screenshot 2023-07-25 160955" src="https://github.com/Dhruv883/Blog-App/assets/98738047/e8ac132d-3c71-47a8-b8ac-84d6979f771c">
-
+<img width="960" alt="Screenshot 2023-07-25 160923" src="https://github.com/Dhruv883/Blog-App/assets/98738047/ded66ddb-86b2-42e0-9c44-dca7784b1ae0">
+<img width="960" alt="Screenshot 2023-07-25 160955" src="https://github.com/Dhruv883/Blog-App/assets/98738047/c78a9fe6-0f6a-4515-b590-45ed0860fa41">
