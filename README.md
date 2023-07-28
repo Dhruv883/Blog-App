@@ -1,7 +1,6 @@
 # Blog Site
 
-A basic Blog Site created using MERN (MongoDB, Express, React, Node.js) Stack. Referred to Moonfo's [tutorial](https://www.youtube.com/playlist?list=PLhaS1k1mPiCO878vo-9xFJAlUfcz9dMv2) to learn/practice backend 
-
+A basic Blog Site created using MERN (MongoDB, Express, React, Node.js) Stack.
 <img width="960" alt="Screenshot 2023-07-25 161326" src="https://github.com/Dhruv883/Blog-App/assets/98738047/9443cfc7-72aa-434c-aee9-aad85d033d61">
 
 <img width="960" alt="Screenshot 2023-07-25 165802" src="https://github.com/Dhruv883/Blog-App/assets/98738047/9f44b8e9-5029-45bc-a476-a93667d5d47e">
