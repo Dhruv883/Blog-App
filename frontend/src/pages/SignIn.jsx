@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../store/reducers/userReducer";
 
-const SignIn = () => {
+export const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.user);
@@ -107,5 +107,3 @@ const SignIn = () => {
     </Main>
   );
 };
-
-export default SignIn;

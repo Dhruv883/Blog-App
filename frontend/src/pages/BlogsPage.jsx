@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllBlogs } from "../services/index/blogs";
 import toast from "react-hot-toast";
 
-const BlogsPage = () => {
+export const BlogsPage = () => {
   const { data, isLoading, isError } = useQuery({
     queryFn: () => {
       return getAllBlogs();
@@ -29,5 +29,3 @@ const BlogsPage = () => {
     </Main>
   );
 };
-
-export default BlogsPage;

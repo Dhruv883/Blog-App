@@ -1,7 +1,7 @@
 import React from "react";
 import Main from "../components/Main";
 
-const HomePage = () => {
+export const HomePage = () => {
   return (
     <Main>
       <section className="flex justify-center lg:justify-evenly items-center">
@@ -49,5 +49,3 @@ const HomePage = () => {
     </Main>
   );
 };
-
-export default HomePage;

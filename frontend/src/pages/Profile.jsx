@@ -8,7 +8,7 @@ import { getUserBlogs } from "../services/index/users";
 import { deleteBlog } from "../services/index/blogs";
 import { useMutation } from "@tanstack/react-query";
 
-const Profile = () => {
+export const Profile = () => {
   const userState = useSelector((state) => state.user.userInfo);
   const token = userState.token;
   const username = userState.username;
@@ -68,5 +68,3 @@ const Profile = () => {
     </Main>
   );
 };
-
-export default Profile;

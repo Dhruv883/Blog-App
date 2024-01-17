@@ -14,7 +14,7 @@ import Text from "@tiptap/extension-text";
 
 import parse from "html-react-parser";
 
-const BlogDetail = () => {
+export const BlogDetail = () => {
   const [body, setBody] = useState(null);
 
   const { id } = useParams();
@@ -83,5 +83,3 @@ const BlogDetail = () => {
     </section>
   );
 };
-
-export default BlogDetail;

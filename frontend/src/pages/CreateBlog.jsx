@@ -13,7 +13,7 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { createBlog } from "../services/index/blogs";
 
-const CreateBlog = () => {
+export const CreateBlog = () => {
   const userState = useSelector((state) => state.user.userInfo);
   const token = userState.token;
 
@@ -173,5 +173,3 @@ const CreateBlog = () => {
     </Main>
   );
 };
-
-export default CreateBlog;
