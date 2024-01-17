@@ -2,7 +2,9 @@ import axios from "axios";
 
 const getAllBlogs = async () => {
   try {
-    const { data } = await axios.get("http://localhost:5000/api/blog");
+    const { data } = await axios.get(
+      "https://blog-app-backend-sage.vercel.app/api/blog"
+    );
     return data;
   } catch (error) {
     if (error.response && error.response.data.message) {
@@ -14,7 +16,9 @@ const getAllBlogs = async () => {
 
 const getBlog = async ({ id }) => {
   try {
-    const { data } = await axios.get(`http://localhost:5000/api/blog/${id}`);
+    const { data } = await axios.get(
+      `https://blog-app-backend-sage.vercel.app/api/blog/${id}`
+    );
     return data;
   } catch (error) {
     if (error.response && error.response.data.message) {
@@ -31,7 +35,10 @@ const deleteBlog = async ({ id, token }) => {
         Authorization: `Bearer ${token}`,
       },
     };
-    await axios.delete(`http://localhost:5000/api/blog/${id}`, config);
+    await axios.delete(
+      `https://blog-app-backend-sage.vercel.app/api/blog/${id}`,
+      config
+    );
   } catch (error) {
     if (error.response && error.response.data.message) {
       throw new Error(error.response.data.message);
@@ -49,7 +56,7 @@ const createBlog = async ({ formData, token }) => {
       },
     };
     const { data } = await axios.post(
-      `http://localhost:5000/api/blog/create`,
+      `https://blog-app-backend-sage.vercel.app/api/blog/create`,
       formData,
       config
     );
