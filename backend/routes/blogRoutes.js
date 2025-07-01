@@ -1,12 +1,12 @@
 import express from "express";
-import auth from "../middleware/auth";
+import auth from "../middleware/auth.js";
 import {
   createBlog,
   deleteBlog,
   getBlog,
   getAllBlogs,
-} from "../controllers/blogControllers";
-import { uploadPicture } from "../middleware/uploadPicture";
+} from "../controllers/blogControllers.js";
+import { uploadPicture } from "../middleware/uploadPicture.js";
 const router = express.Router();
 
 router.get("/", getAllBlogs);

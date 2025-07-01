@@ -1,5 +1,5 @@
-import { verify } from "jsonwebtoken";
-import User from "../models/User";
+import jwt from "jsonwebtoken";
+import User from "../models/User.js";
 
 export const auth = async (req, res, next) => {
   if (
@@ -8,7 +8,7 @@ export const auth = async (req, res, next) => {
   ) {
     try {
       const token = req.headers.authorization.split(" ")[1];
-      const { id } = verify(token, process.env.JWT_SECRET);
+      const { id } = jwt.verify(token, process.env.JWT_SECRET);
       req.user = await User.findById(id).select("-password");
       next();
     } catch (error) {

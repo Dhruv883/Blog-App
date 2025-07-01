@@ -1,9 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
-import connectDB from "./db/db";
-import { errorHandler, invalidPathHandler } from "./middleware/errorHandler";
-import userRoutes from "./routes/userRoutes";
-import blogRoutes from "./routes/blogRoutes";
+import connectDB from "./db/db.js";
+import { errorHandler, invalidPathHandler } from "./middleware/errorHandler.js";
+import userRoutes from "./routes/userRoutes.js";
+import blogRoutes from "./routes/blogRoutes.js";
 import cors from "cors";
 
 dotenv.config();

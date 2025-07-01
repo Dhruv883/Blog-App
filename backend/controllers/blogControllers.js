@@ -1,5 +1,5 @@
-import Blog from "../models/Blog";
-import { uploadPicture } from "../middleware/uploadPicture";
+import Blog from "../models/Blog.js";
+import { uploadPicture } from "../middleware/uploadPicture.js";
 
 const createBlog = async (req, res, next) => {
   const { title, category, body, tags } = req.body;
