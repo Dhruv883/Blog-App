@@ -1,4 +1,4 @@
-import { HomePage } from "./pages/Homepage.jsx";
+import { HomePage } from "./pages/HomePage.jsx";
 import { BlogsPage } from "./pages/BlogsPage.jsx";
 import { BlogDetail } from "./pages/BlogDetail.jsx";
 import { SignUp } from "./pages/SignUp.jsx";
