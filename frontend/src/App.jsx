@@ -1,11 +1,10 @@
-import React from "react";
-import { HomePage } from "./pages/Homepage";
-import { BlogsPage } from "./pages/BlogsPage";
-import { BlogDetail } from "./pages/BlogDetail";
-import { SignUp } from "./pages/SignUp";
-import { SignIn } from "./pages/SignIn";
-import { Profile } from "./pages/Profile";
-import { CreateBlog } from "./pages/CreateBlog";
+import { HomePage } from "./pages/Homepage.jsx";
+import { BlogsPage } from "./pages/BlogsPage.jsx";
+import { BlogDetail } from "./pages/BlogDetail.jsx";
+import { SignUp } from "./pages/SignUp.jsx";
+import { SignIn } from "./pages/SignIn.jsx";
+import { Profile } from "./pages/Profile.jsx";
+import { CreateBlog } from "./pages/CreateBlog.jsx";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
