@@ -42,10 +42,13 @@ const signup = async ({ name, email, username, password }) => {
 
 const signin = async ({ username, password }) => {
   try {
-    const { data } = await axios.post("http://localhost:5000/api/users/login", {
-      username,
-      password,
-    });
+    const { data } = await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}/api/users/login`,
+      {
+        username,
+        password,
+      }
+    );
     return data;
   } catch (error) {
     if (error.response && error.response.data.message) {
